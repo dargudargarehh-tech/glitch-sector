@@ -4,19 +4,26 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background-color: #000;
 }
 
 #bee-game-v5 {
     position: fixed;
     inset: 0;
-    z-index: 2147483647;
-    background: repeating-linear-gradient(45deg, #FFD700, #FFD700 40px, #000 40px, #000 80px);
-    font-family: Impact, sans-serif;
+    /* High-contrast hazard pattern */
+    background: repeating-linear-gradient(
+        45deg,
+        #FFD700,
+        #FFD700 40px,
+        #000 40px,
+        #000 80px
+    );
+    font-family: 'Impact', sans-serif;
     color: white;
     user-select: none;
 }
 
-.ui-header {
+.ui-layer {
     position: absolute;
     top: 20px;
     width: 100%;
@@ -54,20 +61,22 @@ body, html {
     border: 6px solid white;
     box-shadow: 0 15px 40px rgba(0,0,0,0.8);
     z-index: 100;
+    transition: transform 0.1s;
 }
 
-/* Drumstick Missile Styling */
+#fire-trigger:active { transform: translateX(-50%) scale(0.95); }
+
 .missile {
     position: absolute;
     font-size: 80px;
     z-index: 50;
 }
 
-/* Hit Impact Effects */
+/* Hit Impact Animation */
 @keyframes intense-shake { 
-    0% { left: 2px; top: 2px; } 
-    50% { left: -3px; top: -2px; } 
-    100% { left: 0; top: 0; } 
+    0% { transform: translate(2px, 2px); } 
+    50% { transform: translate(-3px, -2px); } 
+    100% { transform: translate(0, 0); } 
 }
 
 .hit-impact { 
