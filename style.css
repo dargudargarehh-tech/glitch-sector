@@ -1,0 +1,76 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#bee-game-v5 {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    background: repeating-linear-gradient(45deg, #FFD700, #FFD700 40px, #000 40px, #000 80px);
+    font-family: Impact, sans-serif;
+    color: white;
+    user-select: none;
+}
+
+.ui-header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 4px 4px #000;
+    z-index: 10;
+}
+
+#score-val { font-size: 3.5rem; margin: 0; }
+#lyric-val { font-size: 2rem; color: #FFD700; }
+
+#bee-target {
+    position: absolute;
+    font-size: 120px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+}
+
+#fire-trigger {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 25px 60px;
+    background: #E4002B;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+    border: 6px solid white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    z-index: 100;
+}
+
+/* Drumstick Missile Styling */
+.missile {
+    position: absolute;
+    font-size: 80px;
+    z-index: 50;
+}
+
+/* Hit Impact Effects */
+@keyframes intense-shake { 
+    0% { left: 2px; top: 2px; } 
+    50% { left: -3px; top: -2px; } 
+    100% { left: 0; top: 0; } 
+}
+
+.hit-impact { 
+    animation: intense-shake 0.1s infinite; 
+    filter: invert(1) !important; 
+}
